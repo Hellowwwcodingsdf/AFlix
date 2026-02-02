@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFlix - Stream Unlimited Movies & TV Shows</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="env-config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="nav-left">
+                <h1 class="logo">ALFlix</h1>
+                <ul class="nav-links">
+                    <li><a href="#" class="active" data-category="home">Home</a></li>
+                    <li><a href="#" data-category="movies">Movies</a></li>
+                    <li><a href="#" data-category="series">TV Shows</a></li>
+                    <li><a href="#" data-category="trending">Trending</a></li>
+                    <li><a href="#" data-category="mylist">My List</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search titles..." class="search-input">
+                </div>
+                <button class="profile-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Featured Content -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title"></h2>
+            <div class="hero-meta">
+                <span class="hero-rating"></span>
+                <span class="hero-year"></span>
+                <span class="hero-runtime"></span>
+            </div>
+            <p class="hero-description"></p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="playBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Play
+                </button>
+                <button class="btn btn-secondary" id="infoBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Rows -->
+    <main class="content-rows">
+        <div class="row" id="trendingRow">
+            <h3 class="row-title">Trending Now</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="trending"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="popularRow">
+            <h3 class="row-title">Popular on ALFlix</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="popular"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="topRatedRow">
+            <h3 class="row-title">Top Rated</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="toprated"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="actionRow">
+            <h3 class="row-title">Action & Adventure</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="action"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="comedyRow">
+            <h3 class="row-title">Comedies</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="comedy"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="horrorRow">
+            <h3 class="row-title">Horror</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="horror"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="romanceRow">
+            <h3 class="row-title">Romance</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="romance"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="documentaryRow">
+            <h3 class="row-title">Documentaries</h3>
+            <div class="row-slider">
+                <button class="slider-btn slider-btn-left">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-content" data-row="documentary"></div>
+                <button class="slider-btn slider-btn-right">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Video Player Modal -->
+    <div class="modal" id="playerModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closePlayer">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <div class="player-container">
+                <iframe id="videoPlayer" allowfullscreen></iframe>
+            </div>
+            <div class="player-info">
+                <h2 id="playerTitle"></h2>
+                <div class="player-meta">
+                    <span id="playerYear"></span>
+                    <span id="playerRating"></span>
+                </div>
+                <p id="playerDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="modal" id="infoModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content info-modal-content">
+            <button class="modal-close" id="closeInfo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <div class="info-hero" id="infoHero">
+                <div class="info-overlay"></div>
+                <div class="info-content">
+                    <h2 id="infoTitle"></h2>
+                    <div class="info-buttons">
+                        <button class="btn btn-primary" id="infoPlayBtn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            Play
+                        </button>
+                        <button class="btn btn-icon" id="addToListBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-details">
+                <div class="info-main">
+                    <div class="info-meta">
+                        <span id="infoYear"></span>
+                        <span id="infoRating"></span>
+                        <span id="infoRuntime"></span>
+                    </div>
+                    <p id="infoDescription"></p>
+                </div>
+                <div class="info-sidebar">
+                    <div class="info-section">
+                        <span class="info-label">Cast:</span>
+                        <span id="infoCast">Loading...</span>
+                    </div>
+                    <div class="info-section">
+                        <span class="info-label">Genres:</span>
+                        <span id="infoGenres">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
